@@ -1,8 +1,3 @@
-# 开发团队:个人
-# 开发时间:2021/3/27 下午 1:21
-# 开发人员:Erhecy
-# 开发名称:konachanVer-2.py
-# 开发格式:PyCharm
 import requests
 import re
 import os

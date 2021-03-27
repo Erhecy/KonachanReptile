@@ -3,4 +3,4 @@
 
 图片会默认存在程序运行目录下。
 
-![demo]([./img/demo.png](https://github.com/ERHECY/KonachanReptile/blob/main/img/demo.png?raw=true))
+![demo](https://github.com/ERHECY/KonachanReptile/blob/main/img/demo.png?raw=true)

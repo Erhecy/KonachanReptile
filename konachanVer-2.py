@@ -2,6 +2,7 @@ import requests
 import re
 import os
 
+
 def kogetli(page):
     print("开始获取图片")
     print('开始获取第', page, '页的图片')
@@ -15,6 +16,14 @@ def kogetli(page):
     # print(imglistli)
     return imglistli
 
+
+def seve_img(img_url, file_name):
+    img = requests.get(img_url)
+    f = open(file_name + '.jpg', 'ab') 
+    f.write(img.content)
+    f.close()
+
+
 def get_konachanpic():
     page = 1
     picnum = 1
@@ -23,22 +32,16 @@ def get_konachanpic():
         pic_url = re.findall('class="directlink largeimg" href="(.*?)"', html, re.S)
         for key in pic_url:
             # print(key+'\n')
-            print('开始获取第',picnum,'个图片')
-            picname_ = str(key)[26:999999].replace('/','')
+            print('开始获取第', picnum, '个图片')
+            picname_ = str(key)[26:999999].replace('/', '')
             picname = picname_[0:picname_.find('Konachan')]
-            if os.path.exists(os.getcwd()+'\\'+picname+'.jpg') == False:
-                seve_img(key,picname)
+            if not os.path.exists(os.getcwd() + '\\' + picname + '.jpg'):
+                seve_img(key, picname)
             else:
                 print("文件已存已跳过下载")
             picnum = picnum + 1
         page = page + 1
         html = kogetli(page)
-
-def seve_img(img_url,file_name):
-    img = requests.get(img_url)
-    f = open(file_name+'.jpg', 'ab')  # 存储图片，多媒体文件需要参数b（二进制文件）
-    f.write(img.content)
-    f.close()
 
 
 if __name__ == '__main__':

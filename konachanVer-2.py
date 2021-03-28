@@ -4,7 +4,6 @@ import os
 
 
 def kogetli(page):
-    print("开始获取图片")
     print('开始获取第', page, '页的图片')
     url = 'https://konachan.net/post?page=' + str(page)
     body = requests.get(url)
@@ -32,7 +31,7 @@ def get_konachanpic():
         pic_url = re.findall('class="directlink largeimg" href="(.*?)"', html, re.S)
         for key in pic_url:
             # print(key+'\n')
-            print('开始获取第', picnum, '个图片')
+            print('开始获取第', picnum, '张图片')
             picname_ = str(key)[26:999999].replace('/', '')
             picname = picname_[0:picname_.find('Konachan')]
             if not os.path.exists(os.getcwd() + '\\' + picname + '.jpg'):
@@ -45,4 +44,5 @@ def get_konachanpic():
 
 
 if __name__ == '__main__':
+    print("开始获取图片")
     get_konachanpic()

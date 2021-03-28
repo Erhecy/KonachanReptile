@@ -16,9 +16,10 @@ def get_konachanpic():
             picname = picname_[0:picname_.find('Konachan')]
             if not os.path.exists(os.getcwd() + '\\' + picname + '.jpg'):
                 seve_pic(key,os.getcwd() + '\\' + picname + '.jpg',picnum)
+                picnum = picnum + 1
             else:
                 print("文件已存已跳过下载")
-            picnum = picnum + 1
+            
         page = page + 1
         html = kogetli(page)
 

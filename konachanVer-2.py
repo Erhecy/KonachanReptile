@@ -11,15 +11,12 @@ def get_konachanpic():
     while True:
         pic_url = re.findall('class="directlink largeimg" href="(.*?)"', html, re.S)
         for key in pic_url:
-            # print(key+'\n')
-            picname_ = str(key)[26:999999].replace('/', '')
-            picname = picname_[0:picname_.find('Konachan')]
-            if not os.path.exists(os.getcwd() + '\\' + picname + '.jpg'):
-                seve_pic(key,os.getcwd() + '\\' + picname + '.jpg',picnum)
+            print(key+'\n')
+            if not os.path.exists(os.getcwd() + '\\' + str(key).split('/')[4]):
+                seve_pic(key,os.getcwd() + '\\' + str(key).split('/')[4],picnum)
                 picnum = picnum + 1
             else:
                 print("文件已存已跳过下载")
-            
         page = page + 1
         html = kogetli(page)
 

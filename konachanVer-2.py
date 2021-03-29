@@ -11,9 +11,9 @@ def get_konachanpic():
     while True:
         pic_url = re.findall('class="directlink largeimg" href="(.*?)"', html, re.S)
         for key in pic_url:
-            print(key+'\n')
-            if not os.path.exists(os.getcwd() + '\\' + str(key).split('/')[4]):
-                seve_pic(key,os.getcwd() + '\\' + str(key).split('/')[4],picnum)
+            # print(key+'\n')
+            if not os.path.exists(os.getcwd() + '\\' + str(key).split('/')[4]+'.jpg'):
+                seve_pic(key,os.getcwd() + '\\' + str(key).split('/')[4]+'.jpg',picnum)
                 picnum = picnum + 1
             else:
                 print("文件已存已跳过下载")

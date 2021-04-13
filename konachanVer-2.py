@@ -26,7 +26,7 @@ def kogetli(page):
     url = 'https://konachan.net/post?page=' + str(page)
     body = requests.get(url)
     imgulstart = body.text.find('''<ul id="post-list-posts">''')
-    imgulendbody = body.text[imgulstart:9999999]
+    imgulendbody = body.text[imgulstart:]
     imgulend = imgulendbody.find('''</ul>''')
     # 获取li
     imglistli = body.text[imgulstart + 25:imgulend + imgulstart]

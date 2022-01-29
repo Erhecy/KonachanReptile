@@ -9,9 +9,10 @@ def get_konachanpic():
     picnum = 1
     html = kogetli(page)
     while True:
-        pic_url = re.findall('class="directlink largeimg" href="(.*?)"', html, re.S)
-        for key in pic_url:
+        pic_url = re.findall('class="directlink (.*?)" href="(.*?)"', html, re.S)
+        for i in range(len(pic_url)):
             # print(key+'\n')
+            key = pic_url[i][1]
             if not os.path.exists(os.getcwd() + '\\' + str(key).split('/')[4]+'.jpg'):
                 seve_pic(key,os.getcwd() + '\\' + str(key).split('/')[4]+'.jpg',picnum)
                 picnum = picnum + 1

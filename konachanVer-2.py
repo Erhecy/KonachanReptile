@@ -24,14 +24,8 @@ def get_konachanpic():
 def kogetli(page):
     print('开始获取第', page, '页的图片')
     url = 'https://konachan.net/post?page=' + str(page)
-    body = requests.get(url)
-    imgulstart = body.text.find('''<ul id="post-list-posts">''')
-    imgulendbody = body.text[imgulstart:]
-    imgulend = imgulendbody.find('''</ul>''')
-    # 获取li
-    imglistli = body.text[imgulstart + 25:imgulend + imgulstart]
     # print(imglistli)
-    return imglistli
+    return requests.get(url).text
 
 
 def seve_pic(url,path,num):

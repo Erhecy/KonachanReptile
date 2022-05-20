@@ -24,7 +24,7 @@ def get_konachanpic():
 
 def kogetli(page):
     print('开始获取第', page, '页的图片')
-    url = 'https://konachan.net/post?page=' + str(page)
+    url = f'https://konachan.net/post?page={str(page)}'
     # print(imglistli)
     return requests.get(url).text
 
